@@ -1,3 +1,9 @@
+// =================================================
+// | MAY THIS BOT ISN'T WELL CODED, DON'T BLAME PLEASE. I'M NOT A NodeJS DEVELOPER!.
+// | CREATED BY  : https://github.com/systemroot
+// | CREATED FOR : https://github.com/DopeHosting
+// =================================================
+
 const Discord = require("discord.js");
 const mysql = require('mysql');
 const client = new Discord.Client();
