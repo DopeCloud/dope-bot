@@ -3,12 +3,17 @@
 // | CREATED BY  : https://github.com/systemroot
 // | CREATED FOR : https://github.com/DopeHosting
 // =================================================
-
 const Discord = require("discord.js");
+const express = require('express');
+const http = require('http');
+const url = require('url');
+const WebSocket = require('ws');
+const CoinMarketCap = require("node-coinmarketcap");
 const mysql = require('mysql');
 const client = new Discord.Client();
+const coinmarketcap = new CoinMarketCap();
 const config = require("./config.json");
-
+ 
 // ==========================================================
 // CONNECT MYSQL!
 // ==========================================================
@@ -20,6 +25,34 @@ const connection = mysql.createConnection({
 });
 // ==========================================================
 
+// ==========================================================
+// ==========================================================
+// DISCORD HOOK
+const hook = new Discord.WebhookClient(config.WebhookID, config.WebhookTOKEN);
+// ==========================================================
+// ==========================================================
+// START "API" SERVER!.
+// ==========================================================
+const app = express();
+
+app.use(function (req, res) {
+  res.send({ msg: "So?" });
+});
+
+const server = http.createServer(app);
+const wss = new WebSocket.Server({ server });
+wss.on('connection', function connection(ws) {
+  ws.on('message', function incoming(message) {
+    hook.send(`${message}`);
+  });
+
+  ws.send('Testing!');
+});
+server.listen(80, function listening() {
+  console.log('Listening on %d', server.address().port);
+});
+// ==========================================================
+// ==========================================================
 
 client.on("ready", () => {
   console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`); 
@@ -85,6 +118,7 @@ client.on("message", async message => {
         + "\n" + '|!p?              - Pending Orders                         ' 
         + "\n" + '|!hosted      - Hosted Domains By DopeHosting              ' 
         + "\n" + '|!kick           - Kick Someone.                           '
+        + "\n" + '|!btc           - Get BTC Price in USD.                           '
         + "\n" + '|~*~*~*~*~*~*~*~*~*~*~*~*~*~*~~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~|'
         + "\n" + '|~*~*~*~*~*~*~*~*~*~*~*~*~*~*~~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~|');
   }
@@ -129,6 +163,87 @@ client.on("message", async message => {
         if(err) throw err;
         m.edit(`Hosted Domains : **${rows.length}**`);
        });
+  }
+  // ==========================================================
+
+  if(command === "killme") {
+      // message.delete().catch(O_o=>{});
+      
+        message.channel.send(`${message.author}` 
+        + "\n" + "PeW Pew, DIE NOW ._.");
+  }
+  // ==========================================================
+  // COINS.
+  // ==========================================================
+  if(command === "btc") {
+      // message.delete().catch(O_o=>{});
+      
+      coinmarketcap.get("bitcoin", coin => {
+        message.channel.send(`${message.author} **${coin.price_usd}$** USD!`);
+      });
+  }
+  if(command === "eth") {
+      // message.delete().catch(O_o=>{});
+      
+      coinmarketcap.get("ethereum", coin => {
+        message.channel.send(`${message.author}` 
+        + "\n" + `**${coin.price_usd} $** USD!`
+        + "\n" + `**${coin.price_btc}** BTC!`);
+      });
+  }
+  if(command === "xrc") {
+      // message.delete().catch(O_o=>{});
+      
+      coinmarketcap.get("rawcoin2", coin => {
+        message.channel.send(`${message.author}` 
+        + "\n" + `**${coin.price_usd} $** USD!`
+        + "\n" + `**${coin.price_btc}** BTC!`);
+      });
+  }
+  if(command === "krb") {
+      // message.delete().catch(O_o=>{});
+      
+      coinmarketcap.get("karbowanec", coin => {
+        message.channel.send(`${message.author}` 
+        + "\n" + `**${coin.price_usd} $** USD!`
+        + "\n" + `**${coin.price_btc}** BTC!`);
+      });
+  }
+  if(command === "xmr") {
+      // message.delete().catch(O_o=>{});
+      
+      coinmarketcap.get("monero", coin => {
+        message.channel.send(`${message.author}` 
+        + "\n" + `**${coin.price_usd} $** USD!`
+        + "\n" + `**${coin.price_btc}** BTC!`);
+      });
+  }
+  if(command === "bcn") {
+      // message.delete().catch(O_o=>{});
+      
+      coinmarketcap.get("bytecoin", coin => {
+        message.channel.send(`${message.author}` 
+        + "\n" + `**${coin.price_usd} $** USD!`
+        + "\n" + `**${coin.price_btc}** BTC!`);
+      });
+  }
+  if(command === "fcn") {
+      // message.delete().catch(O_o=>{});
+      
+      coinmarketcap.get("fantomcoin", coin => {
+        message.channel.send(`${message.author}` 
+        + "\n" + `**${coin.price_usd} $** USD!`
+        + "\n" + `**${coin.price_btc}** BTC!`);
+      });
+  }
+  if(command === "dsh") {
+      // message.delete().catch(O_o=>{});
+      
+      coinmarketcap.get("dashcoin", coin => {
+        message.channel.send(`${message.author}` 
+        + "\n" + `**${coin.price_usd} $** USD!`
+        + "\n" + `**${coin.price_btc}** BTC!`);
+      });
   }
   // ==========================================================
     
