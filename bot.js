@@ -18,10 +18,10 @@ const config = require("./config.json");
 // CONNECT MYSQL!
 // ==========================================================
 const connection = mysql.createConnection({
-  host: '69.xx.xx.xx',
-  user: 'user_xxxxxxx',
-  password: 'pw_xxxx',
-  database: 'dope_xxxx'
+  host: config.mysqlHOST,
+  user: config.mysqlUS,
+  password: config.mysqlPW,
+  database: config.mysqlDB
 });
 // ==========================================================
 
