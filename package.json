@@ -1,7 +1,7 @@
 {
   "name": "@dopehosting/dope-bot",
   "description": "Simple Discord Bot For Whmcs And More...",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "license": "GPL-2.0",
   "author": "The Raw",
   "main": "bot.js",
