@@ -20,6 +20,17 @@ Then start the bot.
 ```node bot.js```
 
 
+# [TO-DO].
+
+[1] - Add events from whmcs to discord chat when support accept/cancel/terminate orders. when new ticket/replies.
+
+[2] - Send notification in pool chat when pool get new block.
+
+[3] - Send Notification in pool chat when payments are done.
+
+[4] - Optimizing the code, Well for a noob which is working for first time with NodeJS this is too far :trollface: .
+
+
 # Links.
 
 [1] https://DopeHosting.net
