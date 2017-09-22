@@ -22,6 +22,6 @@ Then start the bot.
 
 # Links.
 
-[1] https://DopeHosting.net
-[2] https://discord.gg/2WDFrXQ
+[1] https://DopeHosting.net,
+[2] https://discord.gg/2WDFrXQ,
 [3] https://www.npmjs.com/package/@dopehosting/dope-bot
