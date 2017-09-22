@@ -1,0 +1,35 @@
+{
+  "name": "@dopehosting/dope-bot",
+  "description": "Simple Discord Bot For Whmcs And More...",
+  "version": "0.0.1",
+  "license": "GPL-2.0",
+  "author": "The Raw",
+  "main": "bot.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DopeHosting/dope-bot.git"
+  },
+  "bugs": {
+    "url": "https://github.com/DopeHosting/dope-bot/issues"
+  },
+  "dependencies": {
+    "discord.js": "11.2.1",
+    "mysql": "2.14.1",
+    "express": "4.15.4",
+    "http": "0.0.0",
+    "url": "0.11.0",
+    "ws": "3.2.0",
+    "node-coinmarketcap": "0.2.0"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "keywords": [
+    "Bot",
+    "Discord"
+  ],
+  "homepage": "https://github.com/DopeHosting/dope-bot",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
