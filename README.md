@@ -18,3 +18,10 @@ sudo n 8.0.0
 Then start the bot.
 
 ```node bot.js```
+
+
+# Links.
+
+[1] https://DopeHosting.net
+[2] https://discord.gg/2WDFrXQ
+[3] https://www.npmjs.com/package/@dopehosting/dope-bot
