@@ -1,4 +1,8 @@
 { 
+  "mysqlHOST" : "69.xx.xx.xx",
+  "mysqlUS" : "user_xxxxxxx",
+  "mysqlPW" : "pw_xxxx",
+  "mysqlDB" : "dope_xxxx",
   "token"  : "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
   "prefix" : "!",
   "WebhookID" : "XXXXXXXXXXXXXXXXXXX",
