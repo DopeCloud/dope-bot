@@ -252,7 +252,7 @@ client.on("message", async message => {
   // ==========================================================
   if(command === "kick") {
     if(!message.member.roles.some(r=>["HEAD", "DEV-TEAM"].includes(r.name)) )
-      return message.reply("Sorry, you don't have permissions to use this :facepalm: !");
+      return message.reply("Sorry, you don't have permissions to use this :face_palm: !");
     let member = message.mentions.members.first();
     if(!member)
       return message.reply("Please mention a valid member of this server");
