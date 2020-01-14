@@ -7,6 +7,9 @@ sudo npm cache clean -f
 sudo npm install -g n
 sudo n 8.0.0
 ```
+To future
+This bot runs in any node version as long as discord.js and other packages are supported as they are, feel free to try and use
+`npm audit fix`.
 
 
 1 . ```git clone https://github.com/DopeHosting/dope-bot.git; cd dope-bot/```
