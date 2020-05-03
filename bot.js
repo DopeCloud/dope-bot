@@ -34,23 +34,21 @@ const hook = new Discord.WebhookClient(config.WebhookID, config.WebhookTOKEN);
 // START "API" SERVER!.
 // ==========================================================
 const app = express();
+app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use(function (req, res) {
-  res.send({ msg: "So?" });
-});
+app.get('/', function (req, res) {
+  res.send('Hello World!.')
+})
 
-const server = http.createServer(app);
-const wss = new WebSocket.Server({ server });
-wss.on('connection', function connection(ws) {
-  ws.on('message', function incoming(message) {
-    hook.send(`${message}`);
-  });
-
-  ws.send('Testing!');
+app.post('/post-test', (req, res) => {
+    const re = JSON.stringify(req.body);
+    hook.send(re, {
+    	username: 'DopeHosting.io',
+    	avatarURL: ''
+    });
+    res.sendStatus(200);
 });
-server.listen(80, function listening() {
-  console.log('Listening on %d', server.address().port);
-});
+app.listen(27016, () => console.log(`Started server at :27016!`));
 // ==========================================================
 // ==========================================================
 
